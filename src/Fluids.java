@@ -1,14 +1,14 @@
 public enum Fluids {
-        TAP_WATER("Kranvatten", 0.5),
-        PROTEINDRINK("Proteindryck", 0.1),
-        MINERAL_WATER("Mineralvatten", 0.2);
-
-        private String name;
-        private double volume;
-        Fluids(String name, double volume) {
+        TAP_WATER("kranvatten"),
+        PROTEIN_DRINK("proteindryck"),
+        MINERAL_WATER("mineralvatten");
+        private final String name;
+        Fluids(String name) {
             this.name = name;
-            this.volume = volume;
-
         }
+        public String getName() {
+            return name;
+        }
+
     }
 
