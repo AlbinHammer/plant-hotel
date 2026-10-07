@@ -1,21 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class PlantHouse {
 
-    private static final Plant[] plants = new Plant[100];
-    private static int count = 0;
+    private static final List<Plant> plants = new ArrayList<>();
 
     public void addPlant(Plant plant){
-        plants[count] = plant;
-        count++;
+            plants.add(plant);
+
     }
     public static void printPlants(){//Skriver ut namnen på plantorna
-        for(int i = 0; i < count; i++){
-            System.out.println("Namn: " + plants[i].getName() + ".  (" + plants[i].getType() + ")");
+        for(Plant plant: plants){
+            System.out.println(plant.getName() + ".  (" + plant.getType() + ")");
         }
     }
     public static Plant getPlantsByName(String name){
-        for(int i = 0; i < count; i++){
-            if(plants[i].getName().equalsIgnoreCase(name.trim()) ){
-                return plants[i];
+        for(Plant plant: plants){
+            if(plant.getName().equalsIgnoreCase(name.trim()) ){
+                return plant;
             }
         }
         return null;

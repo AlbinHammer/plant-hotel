@@ -3,6 +3,9 @@ public class Plant {
     private double height;//Inkapsling
 
     public Plant(String name, double height) {
+        if(height<0) {
+            System.out.println("Felaktig inmatning, höjden måste vara positiv");
+        }
         this.name = name;
         this.height = height;
     }
@@ -25,8 +28,4 @@ public class Plant {
         return null;
     }
 
-    /*@Override
-    public String toString() {
-        return "Namn: " +  name + " Längd: " + height;
-    }*/
 }

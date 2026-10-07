@@ -2,18 +2,18 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
-    public static PlantHouse planthouse = new PlantHouse();
+    public static final PlantHouse planthouse = new PlantHouse();
 
     public static void main(String[] args) {
-        addPlant();
-        try (Scanner scanner = new Scanner(System.in)) {
+        addPlant();//Lägger till objekten i arrayen
+        try (Scanner scanner = new Scanner(System.in)) {//Visar meny samt hanterar användarens inmatningar.
             boolean running = true;
             while (running) {
                 showMenu();
                 String input = scanner.nextLine();
-                running = handleChoice(input, scanner);
+                running = handleChoice(input);
             }
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {// Avlutar programmet vid EOF-kommando.
             System.out.println("Avslutar");
         }
     }
@@ -34,14 +34,14 @@ public class Main {
         planthouse.addPlant(new Palm("Olof", 1));
     }
 
-    public static boolean handleChoice(String choice, Scanner scanner) {
+    public static boolean handleChoice(String choice) {//Metod för att hantera användarens input
         if (choice.trim().equalsIgnoreCase("avsluta")) {// Avslutar programmet om användaren skriver "avsluta"(spelar ingen roll om stor eller liten bokstav används)
-            System.out.println("Avslutar.");
+            System.out.print("Avslutar.");
             return false;
         }
         Plant found = PlantHouse.getPlantsByName(choice);
         if (found != null) { // Skriver ut om input matchar objektens namn.
-            System.out.println("\n" + found.getName() + " (" + found.getType() + ") " + " Vattnades med " + found.getVolume() + " liter " + found.getFluid() + "\n");
+            System.out.println("\n" + found.getName() + " (" + found.getType() + ")" + " Skall ha " + found.getVolume() + " liter " + found.getFluid() + "\n");
         } else {//Skriver ut felmeddelande om input inte matchar något objekt
             System.out.println("\nHittade ej någon växt med det namnet\n");
         }
