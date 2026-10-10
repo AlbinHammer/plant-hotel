@@ -30,7 +30,7 @@ public class Main {
     private static void addPlant() { //Skapar objekten
         planthouse.addPlant(new Cactus("Igge", 0.2));
         planthouse.addPlant(new Palm("Laura", 5));
-        planthouse.addPlant(new MeateatingPlant("Meatloaf", 0.7));
+        planthouse.addPlant(new MeatEatingPlant("Meatloaf", 0.7));
         planthouse.addPlant(new Palm("Olof", 1));
     }
 
