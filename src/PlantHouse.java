@@ -7,7 +7,6 @@ public class PlantHouse {
 
     public void addPlant(Plant plant){
             plants.add(plant);
-
     }
     public static void printPlants(){//Skriver ut namnen på plantorna
         for(Plant plant: plants){

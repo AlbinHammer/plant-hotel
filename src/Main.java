@@ -19,7 +19,7 @@ public class Main {
     }
 
     private static void showMenu() { //Meny
-        System.out.println("Vilken planta ska få vätska?");
+        System.out.println("Vilken växt ska få vätska?");
         System.out.println("---------------------------------");
         PlantHouse.printPlants();
         System.out.println("---------------------------------");
@@ -34,6 +34,10 @@ public class Main {
         planthouse.addPlant(new Palm("Olof", 1));
     }
 
+    private static void water(Waterable item) {
+        System.out.println("ska ha " + item.getVolume() + " liter " + item.getFluid());
+    }
+
     public static boolean handleChoice(String choice) {//Metod för att hantera användarens input
         if (choice.trim().equalsIgnoreCase("avsluta")) {// Avslutar programmet om användaren skriver "avsluta"(spelar ingen roll om stor eller liten bokstav används)
             System.out.print("Avslutar.");
@@ -41,7 +45,8 @@ public class Main {
         }
         Plant found = PlantHouse.getPlantsByName(choice);
         if (found != null) { // Skriver ut om input matchar objektens namn.
-            System.out.println("\n" + found.getName() + " (" + found.getType() + ")" + " Skall ha " + found.getVolume() + " liter " + found.getFluid() + "\n");
+            System.out.println("\n" + found.getName() + " (" + found.getType() + ")");
+            water(found);
         } else {//Skriver ut felmeddelande om input inte matchar något objekt
             System.out.println("\nHittade ej någon växt med det namnet\n");
         }
