@@ -17,7 +17,8 @@ public class Main {
         }
     }
 
-    private static void showMenu() { //Meny
+    //Meny
+    private static void showMenu() {
         System.out.println("Vilken växt ska få vätska?");
         System.out.println("---------------------------------");
         plantCollection.printPlants();
@@ -26,32 +27,38 @@ public class Main {
         System.out.print("Skriv namn: ");
     }
 
-    private static void addPlant() { //Skapar objekten
+    //Skapar objekten
+    private static void addPlant() {
         plantCollection.addPlant(new Cactus("Igge", 0.2));
         plantCollection.addPlant(new Palm("Laura", 5));
         plantCollection.addPlant(new MeatEatingPlant("Meatloaf", 0.7));
         plantCollection.addPlant(new Palm("Olof", 1));
     }
+
     //Interface: Metoden tar emot allt som är Waterable och skriver ut mängd och typ av vätska
     private static void printWateringInfo(Waterable item) {
         //Polymorfism: Ger rätt getVolume och getFluid beroende på objektets subklass
         System.out.println("ska ha: " + item.getVolume() + " liter " + item.getFluid() + ".\n");
     }
 
-    public static boolean handleChoice(String choice) {//Metod för att hantera användarens input
+    //Metod för att hantera användarens input
+    public static boolean handleChoice(String choice) {
         if (choice.isBlank()){
             System.out.println("Inget namn skrevs in\n");
             return true;
         }
-        if (choice.trim().equalsIgnoreCase("avsluta")) {// Avslutar programmet om användaren skriver "avsluta"(spelar ingen roll om stor eller liten bokstav används)
+        // Avslutar programmet om användaren skriver "avsluta"(spelar ingen roll om stor eller liten bokstav används)
+        if (choice.trim().equalsIgnoreCase("avsluta")) {
             System.out.print("Avslutar.");
             return false;
         }
+        // Skriver ut om input matchar objektens namn.
         Plant found = plantCollection.findPlantsByName(choice);
-        if (found != null) { // Skriver ut om input matchar objektens namn.
+        if (found != null) {
             System.out.println("\n" + found.getName() + " (" + found.getType() + ")");
             printWateringInfo(found);
-        } else {//Skriver ut felmeddelande om input inte matchar något objekt
+            //Skriver ut felmeddelande om input inte matchar något objekt
+        } else {
             System.out.println("\nHittade ej någon växt med det namnet\n");
         }
         return true;
