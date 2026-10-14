@@ -7,7 +7,7 @@ public class Cactus extends Plant{
         super(name, height,  TYPE, Fluids.MINERAL_WATER);
     }
 
-    //Polymorfism: egen version av getVolume()
+    //Polymorfism: Subklassens egen version av getVolume()
     @Override
     public double getVolume() {//Räknar ut mängden vätska plantan ska ha per dag.
         return BASE_VOLUME;

@@ -7,7 +7,7 @@ public class Palm extends Plant{
         super(name, height, TYPE, Fluids.TAP_WATER);
     }
 
-    //Polymorfism: egen version av getVolume()
+    //Polymorfism: Subklassens egen version av getVolume()
     @Override
     public double getVolume() { //Räknar ut mängden vätska plantan ska ha per dag.
     return VOLUME_PER_METER * getHeight();

@@ -43,6 +43,7 @@ public class Main {
 
     //Metod för att hantera användarens input
     public static boolean handleChoice(String choice) {
+        // Skriver ut felmeddelande om användaren skriver in blankt tecken.
         if (choice.isBlank()){
             System.out.println("Inget namn skrevs in\n");
             return true;
