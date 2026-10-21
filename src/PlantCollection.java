@@ -21,10 +21,9 @@ public class PlantCollection {
         }
         return null;
     }
-    // returnerar en skyddad vy av listan så att andra klasser inte kan ändra den.
+
+    //Returnerar en skyddad vy av listan
     public List<Plant> getPlants() {
         return Collections.unmodifiableList(plants);
     }
-
-
 }

@@ -1,23 +1,16 @@
-import java.util.NoSuchElementException;
-import java.util.Scanner;
-
 public class Main {
 
     private static final PlantCollection plantCollection = new PlantCollection();
-    private static final ConsoleView view = new ConsoleView();
+    private static final DialogView view = new DialogView();
 
     // Startar programmet, skapar växterna och visar menyn tills användaren stänger av programmet.
     public static void main(String[] args) {
         addPlant();
-        try (Scanner scanner = new Scanner(System.in)) {
-            boolean running = true;
-            while (running) {
-                view.showMenu(plantCollection.getPlants());
-                running = handleInput(scanner.nextLine());
-            }
-        } catch (NoSuchElementException e) {// Avlutar programmet vid CTRL-D (EOF).
-            System.out.println("Avslutar");
+        boolean running = true;
+        while (running) {
+            running = handleInput(view.askPlantName(plantCollection.getPlants()));
         }
+
     }
 
     //Skapar objekten
@@ -31,24 +24,19 @@ public class Main {
 
     // Hanterar användarens input, returnerar false när programmet avslutas
     private static boolean handleInput(String input) {
-        // Skriver ut felmeddelande om användaren skriver in blankt tecken.
-        if (input.isBlank()) {
-            System.out.println("\nInget namn skrevs in\n");
-            return true;
-        }
         // Avslutar programmet om användaren skriver "avsluta"(spelar ingen roll om stor eller liten bokstav används)
-        if (input.trim().equalsIgnoreCase("avsluta")) {
-            System.out.print("Avslutar.");
+        if (input == null) {
             return false;
         }
-        // Skriver ut om input matchar objektens namn.
-        Plant found = plantCollection.findPlantsByName(input);
+        if (input.isBlank()) { // Skriver ut felmeddelande om användaren skriver in blankt tecken.
+            view.emptyInput();
+            return true;
+        }
+        Plant found = plantCollection.findPlantsByName(input); // Skriver ut om input matchar objektens namn.
         if (found != null) {
-            System.out.println("\n" + found.getName() + " (" + found.getType() + ")");
-            view.printWateringInfo(found);
-            //Skriver ut felmeddelande om input inte matchar något objekt
-        } else {
-            System.out.println("\nHittade ej någon växt med det namnet\n");
+            view.showResult(found);
+        } else { //Skriver ut felmeddelande om input inte matchar något objekt
+            view.inputNotFound();
         }
         return true;
     }
