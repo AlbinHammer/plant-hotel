@@ -2,9 +2,9 @@ import javax.swing.JOptionPane;
 import java.util.List;
 
 public class DialogView {
-    // Visar en ruta som frågar vilken planta som ska få vätska
+    // Visar en ruta som frågar vilken planta som ska få vätska samt visar en lista på sparade plantor
     public String askPlantName(List<Plant> plants) {
-        String plantName = "Vilken planta ska få vätska?\n\n";
+        String plantName = "Skriv in namnet på den planta som ska få vätska\n\n";
         for(Plant plant : plants)  {
             plantName += plant.getName() + " (" + plant.getType() + ")\n\n";
         }

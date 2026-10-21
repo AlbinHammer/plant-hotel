@@ -18,20 +18,21 @@ public class Main {
         plantCollection.addPlant(new Palm("Laura", 5));
         plantCollection.addPlant(new MeatEatingPlant("Meatloaf", 0.7));
         plantCollection.addPlant(new Palm("Olof", 1));
+
     }
 
 
     // Hanterar användarens input
     private static boolean handleInput(String input) {
-        // Avslutar programmet om användaren trycker på cancel eller kryssar ned rutan
+        // Avslutar programmet om användaren trycker på ESC eller kryssar ned rutan
         if (input == null) {
             return false;
         }
-        if (input.isBlank()) { // Skriver ut felmeddelande om användaren skriver in blankt tecken.
+        if (input.isBlank()) { // Skriver ut felmeddelande om användaren inte skriver något
             view.emptyInput();
             return true;
         }
-        Plant found = plantCollection.findPlantsByName(input); // Skriver ut om input matchar objektens namn.
+        Plant found = plantCollection.findPlantsByName(input); // Skriver ut om input matchar objektens namn
         if (found != null) {
             view.showResult(found);
         } else { //Skriver ut felmeddelande om input inte matchar något objekt

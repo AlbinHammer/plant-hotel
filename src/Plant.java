@@ -1,5 +1,6 @@
 //Interface: Plant implementerar Waterable
 public abstract class Plant implements Waterable {
+    // Konstanter
     private static final double MIN_HEIGHT = 0;
     private static final String NEGATIVE_HEIGHT_MESSAGE = "Felaktig inmatning, höjden måste vara positiv";
 

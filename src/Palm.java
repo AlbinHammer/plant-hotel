@@ -1,5 +1,6 @@
 //Arv: Palm ärver från Plant
 public class Palm extends Plant {
+    // Konstanter
     private static final String TYPE = "Palm";
     private static final double VOLUME_PER_METER = 0.5;
 

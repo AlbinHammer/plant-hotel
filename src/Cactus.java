@@ -1,5 +1,6 @@
 //Arv: Cactus ärver från Plant
 public class Cactus extends Plant {
+    // Konstanter
     private static final String TYPE = "Kaktus";
     private static final double BASE_VOLUME = 0.02;
 
