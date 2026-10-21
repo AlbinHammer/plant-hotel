@@ -3,16 +3,15 @@ import java.util.List;
 
 public class PlantCollection {
 
+    // Inkapsling, listan nås bara via metoderna i klassen
     private final List<Plant> plants = new ArrayList<>();
 
+    // Sparar objekten i listan
     public void addPlant(Plant plant){
             plants.add(plant);
     }
-    public void printPlants(){//Skriver ut namnen på plantorna
-        for(Plant plant: plants){
-            System.out.println(plant.getName() + "  (" + plant.getType() + ")");
-        }
-    }
+
+    // Hittar namnet på objektet i listan
     public Plant findPlantsByName(String name){
         for(Plant plant: plants){
             if(plant.getName().equalsIgnoreCase(name.trim()) ){
@@ -20,6 +19,9 @@ public class PlantCollection {
             }
         }
         return null;
+    }
+    public List<Plant> getPlants() {
+    return plants;
     }
 
 
