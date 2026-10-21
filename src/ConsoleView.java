@@ -17,6 +17,7 @@ public class ConsoleView {
             System.out.println(plant.getName() + "  (" + plant.getType() + ")");
         }
     }
+
     //Interface: Metoden tar emot allt som är Waterable och skriver ut mängd och typ av vätska
     public void printWateringInfo(Waterable item) {
         //Polymorfism: Ger rätt getVolume och getFluid beroende på objektets subklass

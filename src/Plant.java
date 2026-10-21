@@ -3,7 +3,7 @@ public abstract class Plant implements Waterable {
     private static final double MIN_HEIGHT = 0;
     private static final String NEGATIVE_HEIGHT_MESSAGE = "Felaktig inmatning, höjden måste vara positiv";
 
-    //Inkapsling: Fälter är privata och nås endast via getters
+    //Inkapsling: Fälten är privata och nås endast via getters
     private final String name;
     private final double height;
     private final String type;
@@ -11,7 +11,7 @@ public abstract class Plant implements Waterable {
 
     //Konstruktor som fångar upp felaktig inmatning för höjden.
     public Plant(String name, double height, String type, Fluids fluid) {
-        if(height<MIN_HEIGHT) {
+        if (height <= MIN_HEIGHT) {
             throw new IllegalArgumentException(NEGATIVE_HEIGHT_MESSAGE);
         }
         this.name = name;
@@ -20,13 +20,15 @@ public abstract class Plant implements Waterable {
         this.fluid = fluid;
     }
 
+    //Returnerar namn, höjd, plantyp, vätsketyp och vätskemängd
     public String getName() {
         return name;
     }
-    public double getHeight()
-    {
+
+    public double getHeight() {
         return height;
     }
+
     public String getType() {
         return type;
     }
@@ -36,7 +38,7 @@ public abstract class Plant implements Waterable {
         return fluid.getName();
     }
 
-    // Varje subklass räknar ut sitt eget värde
+    // Varje subklass räknar ut sitt eget värde på vätskemängd per dag
     @Override
     public abstract double getVolume();
 

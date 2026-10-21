@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PlantCollection {
@@ -6,22 +7,23 @@ public class PlantCollection {
     // Inkapsling, listan nås bara via metoderna i klassen
     private final List<Plant> plants = new ArrayList<>();
 
-    // Sparar objekten i listan
-    public void addPlant(Plant plant){
-            plants.add(plant);
+    // lägger till ett objekt i listan
+    public void addPlant(Plant plant) {
+        plants.add(plant);
     }
 
-    // Hittar namnet på objektet i listan
-    public Plant findPlantsByName(String name){
-        for(Plant plant: plants){
-            if(plant.getName().equalsIgnoreCase(name.trim()) ){
+    // Söker efter namnet på objektet i listan oavsett stora eller små bokstäver, returnerar null om inget hittas
+    public Plant findPlantsByName(String name) {
+        for (Plant plant : plants) {
+            if (plant.getName().equalsIgnoreCase(name.trim())) {
                 return plant;
             }
         }
         return null;
     }
+    // returnerar en skyddad vy av listan så att andra klasser inte kan ändra den.
     public List<Plant> getPlants() {
-    return plants;
+        return Collections.unmodifiableList(plants);
     }
 
 

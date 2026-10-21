@@ -1,10 +1,11 @@
 //Arv: Cactus ärver från Plant
-public class Cactus extends Plant{
+public class Cactus extends Plant {
     private static final String TYPE = "Kaktus";
     private static final double BASE_VOLUME = 0.02;
 
+    // Skapar en kaktus som ska ha mineralvatten
     public Cactus(String name, double height) {
-        super(name, height,  TYPE, Fluids.MINERAL_WATER);
+        super(name, height, TYPE, Fluids.MINERAL_WATER);
     }
 
     //Polymorfism: Subklassens egen version av getVolume()
