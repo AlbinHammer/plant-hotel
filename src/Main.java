@@ -10,7 +10,6 @@ public class Main {
         while (running) {
             running = handleInput(view.askPlantName(plantCollection.getPlants()));
         }
-
     }
 
     //Skapar objekten
@@ -22,9 +21,9 @@ public class Main {
     }
 
 
-    // Hanterar användarens input, returnerar false när programmet avslutas
+    // Hanterar användarens input
     private static boolean handleInput(String input) {
-        // Avslutar programmet om användaren skriver "avsluta"(spelar ingen roll om stor eller liten bokstav används)
+        // Avslutar programmet om användaren trycker på cancel eller kryssar ned rutan
         if (input == null) {
             return false;
         }

@@ -8,13 +8,13 @@ public class DialogView {
         for(Plant plant : plants)  {
             plantName += plant.getName() + " (" + plant.getType() + ")\n\n";
         }
-        return JOptionPane.showInputDialog(null,  plantName);
+        return JOptionPane.showInputDialog(null,  plantName, "Fråga", JOptionPane.QUESTION_MESSAGE);
 
     }
     // Visar en ruta med namn, typ, vätskemängd och vätsketyp
     public void showResult(Plant plant) {
         String message = plant.getName() + " (" + plant.getType() + ")\nska ha " + getWateringText(plant) + ".";
-        JOptionPane.showMessageDialog(null, message, "Result", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, message, "Resultat", JOptionPane.INFORMATION_MESSAGE);
     }
 
     // Visar felmeddelande när inget skrivits in
